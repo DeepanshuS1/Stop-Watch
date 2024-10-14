@@ -3,10 +3,16 @@
     padding: 0;
 }
 
+::-webkit-scrollbar-thumb{
+    background-color: black;
+}
+
 body{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
     background: linear-gradient(45deg, #00a8ff , #4ff84f);
@@ -19,7 +25,7 @@ body{
     width: 100vw;
     top: 0;
     left: 0;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 
 .container{
@@ -66,8 +72,52 @@ body{
     color: white;
     letter-spacing: 2px;
     margin: 0 10px;
+    border: 2px solid rgb(78, 77, 77);
+    transition: all .9s ease;
 }
 
 .start{
     background-color: #1ffb1f;
+}
+
+.one_hunderth_second{
+    font-size: 3.5rem;
+    width: 8rem;
+    height: 8rem;
+    text-align: center;
+    place-content: center;
+}
+
+.lapbox{
+    width: 35rem;
+    height: 10rem;
+    scale: 0;
+    transition: all 0.5s ease;
+}
+
+.lapbox_open{
+    scale: 1;
+}
+
+.headings,
+.lap{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #ff0090;
+    padding: 10px;
+}
+
+.laps{
+    height: 100%;
+    overflow: auto;
+}
+
+.headings{
+    border-bottom: 2px solid black;
+}
+
+.lap{
+    color: green;
+    overflow: auto;
 }
