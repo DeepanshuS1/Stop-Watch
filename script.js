@@ -56,11 +56,27 @@ let miliSecond_lap = 0;
 
 function laped() {
     lapbox.classList.add('lapbox_open')
-    let min = (minute_now - minute_lap).toString().padStart(2, 0);
+    let min;
+    let sec;
+    let mili;
+    if((miliSecond_now - miliSecond_lap) < 0){
+        sec = (second_now - second_lap - 1).toString().padStart(2, 0);
+        mili = (100 + (miliSecond_now - miliSecond_lap)).toString().padStart(2, 0);
+    }else{
+        mili = (miliSecond_now - miliSecond_lap).toString().padStart(2, 0);
+        sec = (second_now - second_lap).toString().padStart(2, 0);
+    }
+    
+    if((second_now - second_lap) < 0){
+        min = (minute_now - minute_lap -1).toString().padStart(2, 0);
+        sec = (60 + parseInt(sec)).toString().padStart(2, 0);
+    }else{
+        min = (minute_now - minute_lap).toString().padStart(2, 0);
+    }
+    
+
     minute_lap = minute_now
-    let sec = (second_now - second_lap).toString().padStart(2, 0);
     second_lap = second_now
-    let mili = (miliSecond_now - miliSecond_lap).toString().padStart(2, 0);
     miliSecond_lap = miliSecond_now
     
     let current_lap = document.createElement('div')
